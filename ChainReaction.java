@@ -21,6 +21,7 @@ public class ChainReaction {
         gameWords = new String[chainLength];
         wordSets = set;
         chainSet = false;
+        currentIndex = 1;
     }
 
     public void playGame(){
@@ -30,6 +31,8 @@ public class ChainReaction {
         if(chainSet){
             createChain();
             updateChain();
+            revealChainWord(0);
+            revealChainWord(chainLength - 1);
             showChain();
 
             while(guesses <= getGuessCount()){
@@ -42,7 +45,7 @@ public class ChainReaction {
                     setCurrentIndex(getCurrentIndex()+1);
                     updateChain();
                     showChain();
-                    if(getCurrentIndex() == chainLength){
+                    if(getCurrentIndex() == chainLength - 1){
                         System.out.println("\nCONGRATULATIONS!  YOU HAVE COMPLETED THE CHAIN!\n");
                         break;
                     }

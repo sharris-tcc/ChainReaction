@@ -39,6 +39,7 @@ public class ChainReactionMain {
             System.out.println("*  CAN YOU COMPLETE THE CHAIN?  *");
             System.out.println("*                               *");
             System.out.println("*********************************\n");
+			System.out.println("Tutorial..................press 0");
             System.out.println("Beginner..................press 1");
             System.out.println("Pro.......................press 2");
             System.out.println("Superstar.................press 3");
@@ -46,6 +47,10 @@ public class ChainReactionMain {
             System.out.print("SELECT DIFFICULTY: ");
             int difficulty = new Scanner(System.in).nextInt();
             switch (difficulty) {
+				case 0 -> {
+                    chainLength = 3;
+                    guesses = 3;
+                }
                 case 1 -> {
                     chainLength = 3;
                     guesses = 10;
