@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+//Stephen Harris
 
 public class ChainReactionMain {
 
@@ -47,27 +48,32 @@ public class ChainReactionMain {
             System.out.print("SELECT DIFFICULTY: ");
             int difficulty = new Scanner(System.in).nextInt();
             switch (difficulty) {
-				case 0 -> {
+                case 0:{
                     chainLength = 3;
                     guesses = 3;
+                    break;
                 }
-                case 1 -> {
+                case 1:{
                     chainLength = 3;
                     guesses = 10;
+                    break;
                 }
-                case 2 -> {
+                case 2: {
                     chainLength = 5;
                     guesses = 15;
+                    break;
                 }
-                case 3 -> {
+                case 3: {
                     chainLength = 7;
                     guesses = 20;
+                    break;
                 }
-                default -> {
+                default: {
                     System.out.print("Enter Chain Length: ");
                     chainLength = new Scanner(System.in).nextInt();
                     System.out.print("Enter Number of Guesses: ");
                     guesses = new Scanner(System.in).nextInt();
+                    break;
                 }
             }
 
