@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-//Stephen Harris
+
+/**Enter your name here**/
 
 public class ChainReactionMain {
 
