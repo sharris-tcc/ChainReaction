@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**Enter your name here**/
+/**Stephen Harris**/
 
 public class ChainReactionMain {
 
@@ -90,9 +90,53 @@ public class ChainReactionMain {
     }
 
     public static void cleanData(ArrayList<ArrayList<String>> wordSets){
-	/**Add Code here to clean dataset**/
-	    
-        validate(wordSets);
+
+        boolean update = false;
+        /** Remove rows with only 1 word **/
+        for (int i = 0; i < wordSets.size(); i++) {
+             if(wordSets.get(i).size() < 2){
+                 wordSets.remove(wordSets.get(i));
+                 update = true;
+             }
+        }
+        /** Check if a word appears as the first word in row
+         *  If it does not it should be removed
+         */
+        for(int i = 0; i < wordSets.size(); i++){
+            for (int j = 0; j < wordSets.get(i).size(); j++) {
+                String word = wordSets.get(i).get(j);
+                /** Flag used to determine if a word should be removed **/
+                boolean removeWord = true;
+                for(int k = 0; k < wordSets.size(); k++){
+                    /** Check if word is first in a row **/
+                    if(word.equals(wordSets.get(k).get(0))){
+                        removeWord = false;
+                        break;
+                    }
+                }
+                /**
+                 * If removeWord is true, this means it never appeared as first word
+                 * Remove every occurrence of word in ArrayList
+                 */
+                if(removeWord){
+                    for(int row = 0; row < wordSets.size(); row++) {
+                        for (int col = 0; col < wordSets.get(row).size(); col++) {
+                            if(wordSets.get(row).get(col).equals(word)){
+                                wordSets.get(row).remove(word);
+                                update = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if(update){
+            /** Recursive call **/
+            cleanData(wordSets);
+        }
+        else{
+            validate(wordSets);
+        }
     }
     public static void validate(ArrayList<ArrayList<String>> wordSets){
         final int wordCountValid = 8033;
